@@ -115,13 +115,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //Utilityボタン
     widgets.add(
-        FloatingActionButton(
-          onPressed: (){
-            getImage(ImageSource.gallery);
-            },
-          tooltip: "画像を変更する",
-          child: Icon(Icons.attach_file),
-        ),
+      FloatingActionButton(
+        onPressed: (){
+          getImage(ImageSource.gallery);
+          },
+        tooltip: "画像を変更する",
+        child: Icon(Icons.attach_file),
       ),
     );
 

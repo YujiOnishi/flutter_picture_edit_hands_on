@@ -3,7 +3,6 @@ import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:image_cropper/image_cropper.dart';
 
 void main() => runApp(MyApp());
 
@@ -110,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
     );
 
-
     //Utilityボタン
     widgets.add(
       Row(
@@ -122,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Icon(Icons.attach_file),
           ),
           FloatingActionButton(
-            onPressed: ,
+            onPressed: (){},
             tooltip: "トリミング",
             child: Icon(Icons.picture_in_picture),
           ),
@@ -148,36 +146,6 @@ class _MyHomePageState extends State<MyHomePage> {
         _image = image;
       },
     );
-  }
-
-  Future trimmingImage() async {
-    if (_image == null) {
-      return;
-    }
-
-    File croppedFile = await ImageCropper.cropImage(
-      sourcePath: _image.path,
-      aspectRatioPresets: [
-        CropAspectRatioPreset.square,
-        CropAspectRatioPreset.ratio3x2,
-        CropAspectRatioPreset.original,
-        CropAspectRatioPreset.ratio4x3,
-        CropAspectRatioPreset.ratio16x9
-      ],
-      androidUiSettings: AndroidUiSettings(
-          toolbarTitle: 'Cropper',
-          toolbarColor: Colors.deepOrange,
-          toolbarWidgetColor: Colors.white,
-          initAspectRatio: CropAspectRatioPreset.original,
-          lockAspectRatio: false),
-      iosUiSettings: IOSUiSettings(
-        minimumAspectRatio: 1.0,
-      )
-    );
-
-    setState(() {
-      _image=croppedFile;
-    });
   }
 
   List<Widget> createChangeBlendButtons() {

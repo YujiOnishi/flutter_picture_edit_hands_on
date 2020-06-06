@@ -48,8 +48,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     widgets.add(
       Text(widget.title),
+    );
+    widgets.add(
       Text(widget.title),
+    );
+    widgets.add(
       Text(widget.title),
+    );
+    widgets.add(
       Text(widget.title+"a"),
     );
 

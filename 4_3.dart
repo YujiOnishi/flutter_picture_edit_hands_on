@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:image_cropper/image_cropper.dart';
 
 void main() => runApp(MyApp());
 
@@ -111,12 +112,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //Utilityボタン
     widgets.add(
-      FloatingActionButton(
-        onPressed: (){
-          getImage(ImageSource.gallery);
-          },
-        tooltip: "画像を変更する",
-        child: Icon(Icons.attach_file),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: (){getImage(ImageSource.gallery);},
+            tooltip: "画像を変更する",
+            child: Icon(Icons.attach_file),
+          ),
+          FloatingActionButton(
+            onPressed: trimmingImage,
+            tooltip: "トリミング",
+            child: Icon(Icons.picture_in_picture),
+          ),
+        ],
       ),
     );
 
@@ -138,6 +147,36 @@ class _MyHomePageState extends State<MyHomePage> {
         _image = image;
       },
     );
+  }
+
+  Future trimmingImage() async {
+    if (_image == null) {
+      return;
+    }
+
+    File croppedFile = await ImageCropper.cropImage(
+      sourcePath: _image.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+      androidUiSettings: AndroidUiSettings(
+          toolbarTitle: 'Cropper',
+          toolbarColor: Colors.deepOrange,
+          toolbarWidgetColor: Colors.white,
+          initAspectRatio: CropAspectRatioPreset.original,
+          lockAspectRatio: false),
+      iosUiSettings: IOSUiSettings(
+        minimumAspectRatio: 1.0,
+      )
+    );
+
+    setState(() {
+      _image=croppedFile;
+    });
   }
 
   List<Widget> createChangeBlendButtons() {
@@ -165,11 +204,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             color: Colors.white,
             onPressed: () {
+              selectedBlend(key);
             },
           ),
         );
       },
     );
     return widgets;
+  }
+
+  void selectedBlend(String value) {
+    setState(
+      () {
+        BlendData blendData = blendDataMap[value];
+        _mode = blendData.mode;
+        _color = blendData.color;
+      },
+    );
   }
 }

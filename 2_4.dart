@@ -33,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     List<Widget> widgets = List();
     
     //メインの画像
@@ -53,13 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //Utilityボタン
     widgets.add(
-        FloatingActionButton(
-          onPressed: (){
-            getImage(ImageSource.gallery);
-            },
-          tooltip: "画像を変更する",
-          child: Icon(Icons.attach_file),
-        ),
+      FloatingActionButton(
+        onPressed: (){
+          getImage(ImageSource.gallery);
+          },
+        tooltip: "画像を変更する",
+        child: Icon(Icons.attach_file),
       ),
     );
 

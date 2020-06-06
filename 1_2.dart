@@ -34,8 +34,14 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Widget> widgets = List();
     widgets.add(
       Text(widget.title),
+    );
+    widgets.add(
       Text(widget.title),
+    );
+    widgets.add(
       Text(widget.title),
+    );
+    widgets.add(
       Text(widget.title+"a"),
     );
 
