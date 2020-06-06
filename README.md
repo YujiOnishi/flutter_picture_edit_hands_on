@@ -53,6 +53,7 @@ https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_win
 
 ②1でダウンロードしたファイルをC:\src直下に解凍
 
+③システム環境変数に「C:\src\flutter\bin」を登録。
 
 
 #### 3,AndroidStudioのインストール
