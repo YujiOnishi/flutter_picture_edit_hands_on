@@ -86,7 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
           child: _image == null
               ? Container()
               : Image.file(
+              : _mode == null
+                  ? Image.file(
                       _image,
+                    )
+                  : Image.file(
                       color: _color,
                       colorBlendMode: _mode,
                     ),
