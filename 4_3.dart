@@ -177,6 +177,10 @@ class _MyHomePageState extends State<MyHomePage> {
         minimumAspectRatio: 1.0,
       )
     );
+    
+    if (croppedFile == null) {
+      croppedFile = _image;
+    }
 
     setState(() {
       _image=croppedFile;
