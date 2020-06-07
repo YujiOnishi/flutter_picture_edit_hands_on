@@ -86,7 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
           fit: BoxFit.fitHeight,
           child: _image == null
               ? Container()
-              : Image.file(
+              : _mode == null
+                  ? Image.file(
+                      _image,
+                    )
+                  : Image.file(
                       _image,
                       color: _color,
                       colorBlendMode: _mode,
