@@ -91,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _image,
                     )
                   : Image.file(
+                      _image,
                       color: _color,
                       colorBlendMode: _mode,
                     ),
