@@ -4,6 +4,8 @@
 
 YoutubeLive：https://www.youtube.com/watch?v=cmD4E0Q2q-M
 
+解説：https://docs.google.com/spreadsheets/d/1cLwwOs4PRPbpie5YzTEpW32TE2soMQdiXD6O2caTT0U/edit?usp=sharing
+
 # picture_edit_hands_on
 
 当日までに以下の準備を進めてください。
