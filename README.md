@@ -2,7 +2,7 @@
 
 完成コード：https://github.com/YujiOnishi/picture_edit
 
-YoutubeLive：
+YoutubeLive：http://www.youtube.com/watch?v=0H4hc291t5A
 
 解説：https://docs.google.com/spreadsheets/d/1cLwwOs4PRPbpie5YzTEpW32TE2soMQdiXD6O2caTT0U/edit?usp=sharing
 
